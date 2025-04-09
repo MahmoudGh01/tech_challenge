@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx';
 import HeroSection from "./components/HeroSection.jsx";
 import AboutSection from "./components/AboutSection.jsx";
 import CommitmentSection from "./components/CommitmentSection.jsx";
+import Testimonials from "./components/Testimonials.jsx";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             <HeroSection />
             <AboutSection />
             <CommitmentSection />
+            <Testimonials />
 
         </>
     );
