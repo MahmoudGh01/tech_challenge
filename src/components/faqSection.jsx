@@ -41,16 +41,16 @@ const FaqSection = () => {
     const filteredFaq = faqData.filter(f => filter === 'All' || f.category === filter)
 
     return (
-        <section className="w-full px-4 py-16 max-w-6xl mx-auto">
+        <section className="w-full px-4 py-16 max-w-5xl mx-auto font-sans">
             <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#5B4EFF]">Frequently asked questions</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">Frequently asked questions</h2>
                 <div className="relative">
                     <button
-                        className="border border-[#5B4EFF] px-4 py-2 rounded-full text-[#5B4EFF] font-semibold text-sm flex items-center gap-2"
+                        className="border border-primary px-4 py-2 rounded-full text-primary font-semibold text-sm flex items-center gap-2"
                         onClick={() => setShowDropdown(!showDropdown)}
                     >
                         {filter}
-                        <ChevronDown size={16} className={`${showDropdown ? 'rotate-180' : ''} transition`} />
+                        <ChevronDown size={16} className={`${showDropdown ? 'rotate-180' : ''} transition-transform`} />
                     </button>
                     {showDropdown && (
                         <ul className="absolute top-full left-0 mt-2 w-56 bg-white border rounded-xl shadow-lg z-10 overflow-hidden">
@@ -77,10 +77,10 @@ const FaqSection = () => {
                     return (
                         <div key={idx} className="py-6">
                             <div className="flex items-start gap-4">
-                                <p className="text-[#5B4EFF] font-semibold text-sm w-[180px] shrink-0">{item.category}</p>
+                                <p className="text-primary font-semibold text-sm w-[180px] shrink-0">{item.category}</p>
                                 <div className="flex-1">
                                     <div className="flex justify-between items-start gap-4">
-                                        <p className="font-semibold text-gray-800 text-base">{item.question}</p>
+                                        <p className="font-semibold text-textDark text-base">{item.question}</p>
                                         <button
                                             className="w-6 h-6 rounded-full border flex items-center justify-center shrink-0"
                                             onClick={() => setActiveIndex(isOpen ? -1 : idx)}
@@ -98,7 +98,7 @@ const FaqSection = () => {
                                                 transition={{ duration: 0.3 }}
                                                 className="overflow-hidden"
                                             >
-                                                <div className="mt-4 text-sm text-gray-700 whitespace-pre-line">
+                                                <div className="mt-4 text-sm text-textGray whitespace-pre-line">
                                                     {item.answer}
                                                 </div>
                                             </motion.div>

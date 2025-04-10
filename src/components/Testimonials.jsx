@@ -37,10 +37,14 @@ const Testimonials = () => {
     }, [])
 
     return (
-        <section className="relative w-full py-20 overflow-hidden">
-            <img src={pattern} alt="pattern" className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none" />
+        <section className="relative w-full py-20 overflow-hidden font-sans">
+            <img
+                src={pattern}
+                alt="pattern"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[1440px] h-full object-cover opacity-20 pointer-events-none z-0"
+            />
 
-            <div className="relative max-w-7xl mx-auto px-4">
+            <div className="relative max-w-7xl mx-auto px-4 z-10">
                 <motion.div ref={containerRef} className="cursor-grab overflow-hidden">
                     <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className="flex gap-6">
                         {testimonials.map((t, i) => (
@@ -50,15 +54,15 @@ const Testimonials = () => {
                                         <img src={avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
                                         <div>
                                             <p className="font-semibold text-sm leading-tight">{t.name}</p>
-                                            <p className="text-xs text-gray-500">{t.title}</p>
+                                            <p className="text-xs text-textGray">{t.title}</p>
                                         </div>
                                     </div>
-                                    <span className="text-gray-400 font-semibold text-sm">in</span>
+                                    <span className="text-textGray font-semibold text-sm">in</span>
                                 </div>
 
-                                <div className="bg-[#FAFAFA] h-[380px] px-6 py-8 flex flex-col justify-center gap-6">
-                                    <p className="text-gray-700 text-lg leading-relaxed">{t.text}</p>
-                                    <p className="text-xs text-gray-500">Education ・ {t.education}</p>
+                                <div className="bg-surface h-[380px] px-6 py-8 flex flex-col justify-center gap-6">
+                                    <p className="text-textDark text-lg leading-relaxed">{t.text}</p>
+                                    <p className="text-xs text-textGray">Education ・ {t.education}</p>
                                 </div>
                             </div>
                         ))}
@@ -70,3 +74,4 @@ const Testimonials = () => {
 }
 
 export default Testimonials
+
