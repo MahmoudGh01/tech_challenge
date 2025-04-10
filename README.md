@@ -44,7 +44,14 @@ Responsive React app for Harbour.Space’s **Data Science Apprenticeship** with 
 - Sticky summary bar
 
 ---
+## 🔄 Git Workflow
 
+- **Git Flow** used for feature branches and merging strategy:
+    - `main` → production-ready
+    - `develop` → ongoing integration
+    - `feature/*` → per component/section
+
+---
 ## 🚀 Run Project
 
 ```bash
