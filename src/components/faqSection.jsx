@@ -1,44 +1,18 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const faqData = [
-    {
-        category: 'Program conditions',
-        question: 'What are my obligations?',
-        answer: `The majority of our students receive numerous job offers at the end of the second academic year of their Bachelor’s programme and at the end of the first academic year of their Master’s programme. The best applicants receive an offer from our industrial partners at the beginning of their programmes.
-
-Harbour.Space is highly recognized among innovative employers and is strategic partner of B.Grimm multi-industry corporation with 140 years of history in Thailand. Together we ensure students get the best knowledge about the current job market opportunities.
-
-We offer our students paid internships options during studies jointly with our industrial partners.
-
-Employers that hired graduates of Harbour.Space in the past include Google, IBM, Accenture, Typeform, Frog, and other tech centric companies. Our industry specific employability report could be provided to you separately during the admission process.`
-    },
-    {
-        category: 'Program conditions',
-        question: 'Do I get a job placement upon graduation?',
-        answer: `Yes. You are guaranteed a job placement upon graduation with SCG.`
-    },
-    {
-        category: 'Program conditions',
-        question: 'What if I want to start my own company?',
-        answer: `You’ll have access to mentorship, funding and support from our network of entrepreneurs and investors.`
-    },
-    {
-        category: 'Program conditions',
-        question: 'Do I need a visa?',
-        answer: `Yes, we support students in obtaining the necessary visas.`
-    }
-]
-
-const categories = ['All', 'Admissions', 'Harbour.Space', 'SCG', 'Living in Bangkok', 'Program conditions']
-
 const FaqSection = () => {
     const [activeIndex, setActiveIndex] = useState(0)
-    const [filter, setFilter] = useState('Program conditions')
+    const [filter, setFilter] = useState('All')
     const [showDropdown, setShowDropdown] = useState(false)
 
-    const filteredFaq = faqData.filter(f => filter === 'All' || f.category === filter)
+    const { data } = useSelector(state => state.scholarship)
+    const faqs = data?.scholarship?.faqs?.items || []
+    const categories = ['All', ...(data?.scholarship?.faqs?.categories || [])]
+
+    const filteredFaq = faqs.filter(f => filter === 'All' || f.type === filter)
 
     return (
         <section className="w-full px-4 py-16 max-w-5xl mx-auto font-sans">
@@ -74,10 +48,11 @@ const FaqSection = () => {
             <div className="flex flex-col divide-y">
                 {filteredFaq.map((item, idx) => {
                     const isOpen = activeIndex === idx
+                    const answerText = item.answer.map(a => a.data).join('\n\n')
                     return (
                         <div key={idx} className="py-6">
                             <div className="flex items-start gap-4">
-                                <p className="text-primary font-semibold text-sm w-[180px] shrink-0">{item.category}</p>
+                                <p className="text-primary font-semibold text-sm w-[180px] shrink-0">{item.type}</p>
                                 <div className="flex-1">
                                     <div className="flex justify-between items-start gap-4">
                                         <p className="font-semibold text-textDark text-base">{item.question}</p>
@@ -99,7 +74,7 @@ const FaqSection = () => {
                                                 className="overflow-hidden"
                                             >
                                                 <div className="mt-4 text-sm text-textGray whitespace-pre-line">
-                                                    {item.answer}
+                                                    {answerText}
                                                 </div>
                                             </motion.div>
                                         )}
