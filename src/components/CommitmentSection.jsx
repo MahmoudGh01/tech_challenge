@@ -3,8 +3,9 @@ import React from 'react'
 const CommitmentSection = () => {
   return (
       <section className="max-w-[1440px] mx-auto px-4 py-16 flex flex-col gap-10 items-center font-sans">
-        <div className="flex flex-col md:flex-row flex-wrap gap-6 justify-center">
-          <div className="border w-[320px] h-[524px] p-6 flex flex-col justify-between rounded-lg text-sm">
+        <div className="flex flex-col md:flex-row md:flex-wrap gap-6 justify-center items-center md:items-start">
+
+          <div className="border w-[335px] md:w-[320px] h-[215px] md:h-[524px] p-6 flex flex-col justify-between rounded-lg text-sm">
             <div>
               <p className="text-primary font-medium mb-2">Scholarship value</p>
               <p className="text-3xl font-semibold mb-6">€31,300</p>
@@ -25,39 +26,35 @@ const CommitmentSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div className="flex gap-6">
-              <div className="w-[320px] h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
-                <div>
-                  <p className="text-primary font-medium mb-2">Study commitment</p>
-                  <p className="font-semibold mb-2">3 hours / day</p>
-                  <p className="text-textGray text-xs leading-relaxed">
-                    You will complete 15 modules to graduate. Daily classes are 3 hours, plus coursework to complete in your own time.
-                  </p>
-                </div>
+          <div className="flex flex-col gap-6 items-center md:items-start">
+            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+              <div className="w-[335px] md:w-[320px] h-[263px] md:h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
+                <p className="text-primary font-medium mb-2">Study Commitment</p>
+                <p className="font-semibold mb-2">3 hours / day</p>
+                <p className="text-textGray text-xs leading-relaxed">
+                  You will complete 15 modules to graduate. Daily classes are 3 hours, plus coursework to complete in your own time.
+                </p>
               </div>
 
-              <div className="w-[320px] h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
-                <div>
-                  <p className="text-primary font-medium mb-2">Work commitment</p>
-                  <p className="font-semibold mb-2">4 hours / day</p>
-                  <p className="text-textGray text-xs leading-relaxed">
-                    Immerse yourself in the professional world during your apprenticeship. You'll learn the ropes from the best and get to apply your newly acquired knowledge in the field from day one.
-                  </p>
-                </div>
+              <div className="w-[335px] md:w-[320px] h-[287px] md:h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
+                <p className="text-primary font-medium mb-2">Apprenticeship Commitment</p>
+                <p className="font-semibold mb-2">4 hours / day</p>
+                <p className="text-textGray text-xs leading-relaxed">
+                  Immerse yourself in the professional world during your apprenticeship. You’ll learn the ropes from the best and get to apply your newly acquired knowledge in the field from day one.
+                </p>
               </div>
             </div>
 
-            <div className="w-[676px] max-w-full flex items-center justify-center text-xs text-textGray uppercase gap-2 tracking-wide mx-auto">
+            <div className="w-[335px] md:w-[676px] max-w-full flex items-center justify-center text-xs text-textGray uppercase gap-2 tracking-wide mx-auto">
               <div className="w-full h-px bg-gray-300" />
               Graduation
               <div className="w-full h-px bg-gray-300" />
             </div>
 
-            <div className="w-[680px] h-[178px] border p-6 rounded-lg text-sm mx-auto">
-              <p className="text-primary font-medium mb-1">A full-time contract</p>
-              <p className="font-semibold text-lg mb-1">1 Year / Full-Time</p>
-              <p className="text-textGray text-xs">You'll be guaranteed a 1 year contract with SCG upon graduation.</p>
+            <div className="w-[335px] md:w-[680px] h-[215px] md:h-[178px] border p-6 rounded-lg text-sm mx-auto">
+              <p className="text-primary font-medium mb-1">A Full-Time Contract</p>
+              <p className="font-semibold text-lg mb-1">1 Year Full-Time</p>
+              <p className="text-textGray text-xs">You’ll be guaranteed a 1 year contract with SCG upon graduation.</p>
             </div>
           </div>
         </div>
