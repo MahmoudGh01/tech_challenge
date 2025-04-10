@@ -5,6 +5,7 @@ import AboutSection from './components/AboutSection'
 import CommitmentSection from './components/CommitmentSection'
 import Testimonials from './components/Testimonials'
 import FaqSection from './components/FaqSection'
+import BottomStickyBar from "./components/BottomStickyBar.jsx";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
             <CommitmentSection />
             <Testimonials />
             <FaqSection />
+            <BottomStickyBar />
         </main>
     )
 }
