@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchScholarship } from '../store/slices/scholarshipSlice'
 import profileImage from '../assets/profile-photo.png'
 import mobileImage from '../assets/newsletter-photo.png'
 import pattern from '../assets/circle-pattern.png'
 
 const AboutSection = () => {
+    const dispatch = useDispatch()
+    const { data } = useSelector(state => state.scholarship)
+
+    useEffect(() => {
+        dispatch(fetchScholarship())
+    }, [dispatch])
+
+    if (!data) return null
+
+    const aboutText = data.scholarship.about[0]?.data
+
     return (
         <section className="relative w-full px-4 py-16 max-w-7xl mx-auto font-sans">
-            {/* Desktop */}
             <div className="hidden md:grid grid-cols-2 items-center gap-12">
                 <div className="relative w-[438px] h-[438px] rounded-full border border-slate-300 overflow-hidden">
                     <div className="absolute inset-0 z-0">
@@ -22,14 +34,11 @@ const AboutSection = () => {
                         About the apprenticeship
                     </h2>
                     <p className="text-[22px] font-light leading-[32px] tracking-[-0.33px] text-textGray max-w-[479px]">
-                        Our scholarships are designed to give talented and driven young people from any background access
-                        to top-class education, experience and network. We offer a fully-funded master’s degree
-                        alongside an apprenticeship and a guaranteed job upon graduation.
+                        {aboutText}
                     </p>
                 </div>
             </div>
 
-            {/* Mobile */}
             <div className="md:hidden flex flex-col items-center mt-20">
                 <div className="relative w-[334px] h-[334px] rounded-full border border-slate-300 overflow-hidden">
                     <div className="absolute inset-0 z-0">
@@ -41,15 +50,12 @@ const AboutSection = () => {
                 </div>
 
                 <div className="relative -mt-40 w-[376px] h-[401px] bg-primary z-0 rounded-t-[4px]" />
-
                 <div className="relative -mt-[410px] z-10 w-[334px] h-[555px] bg-white border border-slate-200 flex flex-col items-center p-6 shadow-sm">
                     <h2 className="text-[35px] text-primary font-semibold mt-32 text-center">
                         About the apprenticeship
                     </h2>
                     <p className="text-[18px] text-textGray mt-10 text-center leading-[28px] tracking-tight">
-                        Our scholarships are designed to give talented and driven young people from any background access
-                        to top-class education, experience and network. We offer a fully-funded master’s degree
-                        alongside an apprenticeship and a guaranteed job upon graduation.
+                        {aboutText}
                     </p>
                 </div>
             </div>
