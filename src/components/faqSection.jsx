@@ -56,21 +56,37 @@ const FaqSection = () => {
                                 <div className="flex-1">
                                     <div className="flex justify-between items-start gap-4">
                                         <p className="font-semibold text-textDark text-base">{item.question}</p>
-                                        <button
-                                            className="w-6 h-6 rounded-full border flex items-center justify-center shrink-0"
+
+                                        <motion.button
                                             onClick={() => setActiveIndex(isOpen ? -1 : idx)}
+                                            className="w-12 h-12 rounded-full flex items-center justify-center"
+                                            initial={false}
+                                            animate={{
+                                                rotate: isOpen ? 180 : 0,
+                                                backgroundColor: isOpen ? '#685DC5' : '#FFFFFF',
+                                            }}
+                                            transition={{duration: 0.3}}
                                         >
-                                            {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                                        </button>
+                                            <div className="relative w-3 h-0.5">
+                                                <motion.div
+                                                    animate={{rotate: isOpen ? 0 : 90}}
+                                                    transition={{duration: 0.3}}
+                                                    className={`absolute w-3 h-0.5 ${isOpen ? 'bg-white' : 'bg-[#685DC5]'} left-0 top-0`}
+                                                />
+                                                <div className={`w-3 h-0.5 ${isOpen ? 'bg-white' : 'bg-[#685DC5]'}`}/>
+                                            </div>
+                                        </motion.button>
+
+
                                     </div>
 
                                     <AnimatePresence initial={false}>
                                         {isOpen && (
                                             <motion.div
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: 'auto' }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                transition={{ duration: 0.3 }}
+                                                initial={{opacity: 0, height: 0}}
+                                                animate={{opacity: 1, height: 'auto'}}
+                                                exit={{opacity: 0, height: 0}}
+                                                transition={{duration: 0.3}}
                                                 className="overflow-hidden"
                                             >
                                                 <div className="mt-4 text-sm text-textGray whitespace-pre-line">
