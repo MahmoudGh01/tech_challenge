@@ -14,11 +14,9 @@ const FaqSection = () => {
     const filteredFaqs = faqs.filter(f => filter === 'All' || f.type === filter)
 
     return (
-        <section className="w-full px-4 py-16 max-w-5xl mx-auto font-sans pb-36 ">
-            <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary">
-                    Frequently asked questions
-                </h2>
+        <section className="w-full px-4 sm:px-6 lg:px-8 py-16 max-w-5xl mx-auto font-sans pb-36">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary">Frequently asked questions</h2>
 
                 <div className="relative">
                     <button
@@ -26,11 +24,7 @@ const FaqSection = () => {
                         onClick={() => setShowDropdown(prev => !prev)}
                     >
                         {filter}
-                        <motion.span
-                            animate={{ rotate: showDropdown ? 180 : 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="text-primary"
-                        >
+                        <motion.span animate={{rotate: showDropdown ? 180 : 0}} transition={{duration: 0.2}}>
                             ▼
                         </motion.span>
                     </button>
@@ -61,17 +55,14 @@ const FaqSection = () => {
 
                     return (
                         <div key={idx} className="py-6">
-                            <div className="flex items-start gap-4">
-                                <p className="text-primary font-semibold text-sm w-[180px] shrink-0 hidden md:block">
+                            <div className="flex items-start gap-4 flex-col md:flex-row">
+                                <p className="text-primary font-semibold text-sm w-full md:w-[180px] shrink-0 hidden md:block">
                                     {item.type}
                                 </p>
 
-                                <div className="flex-1">
+                                <div className="flex-1 w-full">
                                     <div className="flex justify-between items-start gap-4">
-                                        <p className="font-semibold text-textDark text-base">
-                                            {item.question}
-                                        </p>
-
+                                        <p className="font-semibold text-textDark text-base">{item.question}</p>
                                         <motion.button
                                             onClick={() => setActiveIndex(isOpen ? -1 : idx)}
                                             className="w-12 h-12 rounded-full flex items-center justify-center"
@@ -79,20 +70,18 @@ const FaqSection = () => {
                                                 rotate: isOpen ? 180 : 0,
                                                 backgroundColor: isOpen ? '#685DC5' : '#FFFFFF',
                                             }}
-                                            transition={{ duration: 0.3 }}
+                                            transition={{duration: 0.3}}
                                         >
                                             <div className="relative w-3 h-0.5">
                                                 <motion.div
-                                                    animate={{ rotate: isOpen ? 0 : 90 }}
-                                                    transition={{ duration: 0.3 }}
+                                                    animate={{rotate: isOpen ? 0 : 90}}
+                                                    transition={{duration: 0.3}}
                                                     className={`absolute w-3 h-0.5 left-0 top-0 ${
                                                         isOpen ? 'bg-white' : 'bg-[#685DC5]'
                                                     }`}
                                                 />
                                                 <div
-                                                    className={`w-3 h-0.5 ${
-                                                        isOpen ? 'bg-white' : 'bg-[#685DC5]'
-                                                    }`}
+                                                    className={`w-3 h-0.5 ${isOpen ? 'bg-white' : 'bg-[#685DC5]'}`}
                                                 />
                                             </div>
                                         </motion.button>
@@ -101,15 +90,14 @@ const FaqSection = () => {
                                     <AnimatePresence initial={false}>
                                         {isOpen && (
                                             <motion.div
-                                                initial={{ opacity: 0, height: 0 }}
-                                                animate={{ opacity: 1, height: 'auto' }}
-                                                exit={{ opacity: 0, height: 0 }}
-                                                transition={{ duration: 0.3 }}
+                                                initial={{opacity: 0, height: 0}}
+                                                animate={{opacity: 1, height: 'auto'}}
+                                                exit={{opacity: 0, height: 0}}
+                                                transition={{duration: 0.3}}
                                                 className="overflow-hidden"
                                             >
-                                                <div className="mt-4 text-sm text-textGray whitespace-pre-line">
-                                                    {answer}
-                                                </div>
+                                                <div
+                                                    className="mt-4 text-sm text-textGray whitespace-pre-line">{answer}</div>
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -120,6 +108,7 @@ const FaqSection = () => {
                 })}
             </div>
         </section>
+
     )
 }
 

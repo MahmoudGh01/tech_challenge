@@ -8,10 +8,10 @@ const CommitmentSection = () => {
   if (!s) return null
 
   return (
-      <section className="max-w-[1440px] mx-auto px-4 py-16 flex flex-col gap-10 items-center font-sans">
-        <div className="flex flex-col md:flex-row md:flex-wrap gap-6 justify-center items-center md:items-start">
-
-          <div className="border w-[335px] md:w-[320px] h-[215px] md:h-[524px] p-6 flex flex-col justify-between rounded-lg text-sm">
+      <section
+          className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col gap-10 items-center font-sans">
+        <div className="flex flex-col gap-6 w-full lg:flex-row lg:justify-between">
+          <div className="w-full sm:max-w-sm lg:w-[32%] border rounded-lg p-6 text-sm flex flex-col justify-between">
             <div>
               <p className="text-primary font-medium mb-2">Scholarship value</p>
               <p className="text-3xl font-semibold mb-6">€{s.total_value}</p>
@@ -32,35 +32,36 @@ const CommitmentSection = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 items-center md:items-start">
-            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
-              <div className="w-[335px] md:w-[320px] h-[263px] md:h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
+          <div className="w-full lg:w-[64%] flex flex-col gap-6">
+            <div className="flex flex-col md:flex-row gap-6 w-full">
+              <div className="w-full border rounded-lg p-6 text-sm flex flex-col justify-between">
                 <p className="text-primary font-medium mb-2">Study Commitment</p>
                 <p className="font-semibold mb-2">{s.study_commitment} hours / day</p>
                 <p className="text-textGray text-xs leading-relaxed">{s.study_commitment_text}</p>
               </div>
-
-              <div className="w-[335px] md:w-[320px] h-[287px] md:h-[274px] border p-6 rounded-lg text-sm flex flex-col justify-between">
+              <div className="w-full border rounded-lg p-6 text-sm flex flex-col justify-between">
                 <p className="text-primary font-medium mb-2">Apprenticeship Commitment</p>
                 <p className="font-semibold mb-2">{s.internship_commitment} hours / day</p>
                 <p className="text-textGray text-xs leading-relaxed">{s.internship_commitment_text}</p>
               </div>
             </div>
 
-            <div className="w-[335px] md:w-[676px] max-w-full flex items-center justify-center text-xs text-textGray uppercase gap-2 tracking-wide mx-auto">
-              <div className="w-full h-px bg-gray-300" />
+            <div className="flex items-center justify-center text-xs text-textGray uppercase gap-2 tracking-wide">
+              <div className="w-full h-px bg-gray-300"/>
               Graduation
-              <div className="w-full h-px bg-gray-300" />
+              <div className="w-full h-px bg-gray-300"/>
             </div>
 
-            <div className="w-[335px] md:w-[680px] h-[215px] md:h-[178px] border p-6 rounded-lg text-sm mx-auto">
+            <div className="w-full border rounded-lg p-6 text-sm">
               <p className="text-primary font-medium mb-1">A Full-Time Contract</p>
               <p className="font-semibold text-lg mb-1">{s.duration} Year Full-Time</p>
-              <p className="text-textGray text-xs">You’ll be guaranteed a {s.duration} year contract with SCG upon graduation.</p>
+              <p className="text-textGray text-xs">You’ll be guaranteed a {s.duration} year contract with SCG upon
+                graduation.</p>
             </div>
           </div>
         </div>
       </section>
+
   )
 }
 

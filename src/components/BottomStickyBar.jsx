@@ -37,35 +37,38 @@ const BottomStickyBar = () => {
     if (!s) return null
 
     return (
-        <div className="fixed bottom-0 w-full bg-white border-t z-50 font-sans">
-            <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-y-2 justify-between text-sm text-textDark">
-                <div className="flex flex-col min-w-[120px]">
-                    <p className="font-semibold">{data.company?.name || 'Company'}</p>
-                    <p>{s.position || 'Internship'}</p>
-                </div>
-                <div className="flex flex-col min-w-[120px]">
-                    <p className="font-semibold">Location</p>
-                    <p>{s.location?.name}</p>
-                </div>
-                <div className="flex flex-col min-w-[120px]">
-                    <p className="font-semibold">Duration</p>
-                    <p>{s.duration} Year Full-Time</p>
-                </div>
-                <div className="flex flex-col min-w-[120px]">
-                    <p className="font-semibold">Start date</p>
-                    <p>{startDate ? format(startDate, 'dd MMM yyyy') : ''}</p>
-                </div>
-                <div className="flex flex-col min-w-[150px]">
-                    <p className="font-semibold">Application deadline</p>
-                    <p>{endDate ? format(endDate, 'dd MMM yyyy') : ''}</p>
-                </div>
-                <div className="flex flex-col min-w-[200px]">
-                    <p className="font-semibold">Application closes in</p>
-                    <p>{remaining}</p>
+        <div className="hidden md:block">
+            <div className="fixed bottom-0 w-full bg-white border-t z-50 font-sans">
+                <div
+                    className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-y-2 justify-between text-sm text-textDark">
+                    <div className="flex flex-col min-w-[120px]">
+                        <p className="font-semibold">{data.company?.name || 'Company'}</p>
+                        <p>{s.position || 'Internship'}</p>
+                    </div>
+                    <div className="flex flex-col min-w-[120px]">
+                        <p className="font-semibold">Location</p>
+                        <p>{s.location?.name}</p>
+                    </div>
+                    <div className="flex flex-col min-w-[120px]">
+                        <p className="font-semibold">Duration</p>
+                        <p>{s.duration} Year Full-Time</p>
+                    </div>
+                    <div className="flex flex-col min-w-[120px]">
+                        <p className="font-semibold">Start date</p>
+                        <p>{startDate ? format(startDate, 'dd MMM yyyy') : ''}</p>
+                    </div>
+                    <div className="flex flex-col min-w-[150px]">
+                        <p className="font-semibold">Application deadline</p>
+                        <p>{endDate ? format(endDate, 'dd MMM yyyy') : ''}</p>
+                    </div>
+                    <div className="flex flex-col min-w-[200px]">
+                        <p className="font-semibold">Application closes in</p>
+                        <p>{remaining}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    )
-}
+            )
+            }
 
-export default BottomStickyBar
+            export default BottomStickyBar

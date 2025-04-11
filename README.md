@@ -52,8 +52,25 @@ Responsive React app for Harbour.Space’s **Data Science Apprenticeship** with 
     - `feature/*` → per component/section
 
 ---
+
+## ✅ Unit Testing
+
+The project includes a unit test suite using **Jest**:
+This suite tests:
+
+The initial state of the scholarshipSlice
+
+The fulfilled state of the fetchScholarship async action
+
+The rejected state (error handling)
+
+
+```bash
+npm run test
+```
 ## 🚀 Run Project
 
 ```bash
 npm install
 npm run dev
+```
