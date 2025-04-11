@@ -14,7 +14,7 @@ const FaqSection = () => {
     const filteredFaqs = faqs.filter(f => filter === 'All' || f.type === filter)
 
     return (
-        <section className="w-full px-4 py-16 max-w-5xl mx-auto font-sans">
+        <section className="w-full px-4 py-16 max-w-5xl mx-auto font-sans pb-36 ">
             <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-primary">
                     Frequently asked questions
